@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div class="movie-cover" :style="{backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path})`}">
+        <div class="back-to-home" @click="$router.push('/')">
+            <i class="el-icon-back"></i>
+            <span>Back To Home Page</span>
+        </div>
+        <div v-if="movie" class="movie-cover" :style="{backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path})`}">
             <div class="movie-details">
                 <img class="movie-image" :src="`https://image.tmdb.org/t/p/w440_and_h660_face${movie.poster_path}`" alt="Avatar">
                 <div class="details">
@@ -57,11 +61,24 @@ export default {
             this.movie = data;
         });
     }
-
 }
 </script>
 
 <style lang="scss" scoped>
+.back-to-home {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    .el-icon-back {
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0.5rem;
+    }
+}
 
 .movie-cover {
     background-size: cover;
@@ -86,7 +103,6 @@ export default {
                 display: flex;
                 margin: 1rem 0;
                 
-
                 .release-date, .genres, .runtime {
                     font-size: 0.8rem;
                     font-weight: 500;
@@ -118,8 +134,8 @@ export default {
 
                 .el-icon-star-on {
                     color: #ff99009e;
-                    font-size: 16px;
-                    margin: 0 0.3rem;
+                    font-size: 20px;
+                    margin: 0 0.3rem 0 0.1rem;
                 }
             }
 

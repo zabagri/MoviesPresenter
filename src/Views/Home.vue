@@ -31,6 +31,7 @@ export default {
         }
     },
     mounted() {
+        this.currentPage = this.$store.getters.page || 1;
         this.getMovies();
     },
     methods: {
@@ -41,6 +42,7 @@ export default {
             });
         },
         handleCurrentChange(val) {
+            this.$store.dispatch('setPage', val);
             this.movieList = [];
             this.getMovies(val);
         }
@@ -53,7 +55,7 @@ export default {
     font-size: 32px;
     font-weight: 600;
     text-decoration: underline;
-
+    margin: 2rem;
 }
 
 .cards-container {

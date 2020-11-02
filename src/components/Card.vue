@@ -1,6 +1,7 @@
 <template>
  <div class="card" @click="goToMovie">
-  <img :src="`https://image.tmdb.org/t/p/w440_and_h660_face${movieCard.poster_path}`" alt="Avatar">
+  <img v-if="movieCard.poster_path" :src="`https://image.tmdb.org/t/p/w440_and_h660_face${movieCard.poster_path}`" alt="Avatar">
+  <img v-else src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"/>
   <div class="container">
     <p class="title">{{movieCard.title}}</p> 
     <p>{{movieCard.release_date}}</p>
