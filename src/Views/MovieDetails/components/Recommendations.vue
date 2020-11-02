@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="movies.length">
         <div class="header">Related Movies</div>
         <div class="recommendation-container">
             <div class="movie" v-for="movie in movies" :key="movie.id">
@@ -51,6 +51,10 @@ export default {
         border-radius: 5px;
         width: 6rem;
         margin: 0.3rem;
+    }
+    
+    .title {
+        width: 90%;
     }
 }
 </style>
