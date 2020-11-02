@@ -20,4 +20,10 @@ const getMovieRecommendations = (id) => {
     return request.get(url).then((res) => res.data);
 }
 
-export { getPopularMovies, getMovieDetails, getMovieRecommendations }
+const getReleasedMoviesByDates = (startDate, endDate, page) => {
+    let url = `/discover/movie?release_date.gte=${startDate}&release_date.lte=${endDate}&page=${page}&api_key=${apiKey}`;
+
+    return request.get(url).then((res) => res.data);
+}
+
+export { getPopularMovies, getMovieDetails, getMovieRecommendations, getReleasedMoviesByDates }
