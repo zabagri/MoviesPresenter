@@ -35,7 +35,7 @@ export default {
         },
         grid: {
           row: {
-            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            colors: ['#f3f3f3', 'transparent'],
             opacity: 0.5
           },
         },
@@ -46,6 +46,7 @@ export default {
   async mounted() {
       await this.getReleasedMoviesNinetyDays();
       this.series = [{
+          name: 'Movies Count',
           data: this.movies
       }];
       this.isLoading = false;
